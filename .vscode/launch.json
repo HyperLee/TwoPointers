@@ -2,7 +2,9 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": ".NET Launch (TwoPointers)",
+      // 推薦設定：在 VS Code 內建終端機面板執行。
+      // 注意：F5 啟動後請務必把焦點切到「TERMINAL」面板（不是 DEBUG CONSOLE）才能輸入數字。
+      "name": ".NET Launch (TwoPointers, integrated terminal)",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
@@ -10,7 +12,23 @@
       "args": [],
       "cwd": "${workspaceFolder}/TwoPointers",
       "stopAtEntry": false,
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      // 避免 F5 後 VS Code 自動把焦點切到 Debug Console，造成使用者把輸入打到錯誤面板。
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      // 備援設定：開系統獨立終端機視窗（最不容易因面板焦點而踩坑）。
+      // 若整合終端機輸入仍有問題，請改用此設定。
+      "name": ".NET Launch (TwoPointers, external terminal)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/TwoPointers/bin/Debug/net10.0/TwoPointers.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/TwoPointers",
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }

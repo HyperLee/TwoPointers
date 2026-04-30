@@ -231,6 +231,21 @@ dotnet test TwoPointers.sln
 
 輸入對應數字即可看到輸入、過程說明與輸出。輸入 `0` 結束。
 
+### 在 VS Code 內執行（F5）的注意事項
+
+按下 **F5** 啟動 Debug 後，VS Code 會同時開啟 **DEBUG CONSOLE** 與一個新的 **TERMINAL** 面板。本專案的 `Console.ReadLine()` 只會接收 **TERMINAL** 面板的輸入：
+
+> ⚠️ 若把數字打在 **DEBUG CONSOLE** 面板，程式會收不到（或只收到空 Enter），看起來像「選了沒反應、又跳回 menu」。請務必把焦點切到 **TERMINAL** 面板再輸入。
+
+`.vscode/launch.json` 已提供兩種設定：
+
+| 名稱 | console | 適用情境 |
+| --- | --- | --- |
+| `.NET Launch (TwoPointers, integrated terminal)` | `integratedTerminal` | 預設；在 VS Code 內建 TERMINAL 面板執行。 |
+| `.NET Launch (TwoPointers, external terminal)` | `externalTerminal` | 備援；開獨立的系統終端機視窗，最不容易因面板焦點問題踩坑。 |
+
+如果使用內建終端機仍遇到輸入沒反應，請從左側「執行與偵錯」面板切換到 *external terminal* 設定再 F5。
+
 ---
 
 ## 9. 目錄索引

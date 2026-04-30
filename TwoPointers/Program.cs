@@ -11,22 +11,49 @@ namespace TwoPointers;
 /// </summary>
 internal static class Program
 {
+    // 連續收到空字串輸入的次數；超過上限視為 stdin 無法互動，主動結束以免看似卡住。
+    private const int MaxConsecutiveEmptyInputs = 5;
+
     private static void Main()
     {
+        int consecutiveEmpty = 0;
+
         while (true)
         {
             PrintMenu();
             Console.Write("請選擇：");
             string? input = Console.ReadLine();
+
             if (input is null)
             {
-                // Ctrl+D / EOF
+                // stdin 已關閉（Ctrl+D / EOF / VS Code 沒有把輸入接到程式）。
+                // 印出明確訊息再離開，避免使用者誤以為視窗卡住。
+                Console.WriteLine();
+                Console.WriteLine("[i] 偵測到輸入流已關閉 (EOF)，程式結束。");
+                Console.WriteLine("    若您是用 VS Code F5 執行，請確認在『TERMINAL』面板（不是 DEBUG CONSOLE）輸入數字。");
                 return;
             }
 
-            if (!int.TryParse(input.Trim(), out int choice))
+            string trimmed = input.Trim();
+            if (trimmed.Length == 0)
             {
-                Console.WriteLine("[!] 無效輸入，請輸入 0~10。\n");
+                consecutiveEmpty++;
+                Console.WriteLine("[!] 未收到輸入內容。請在『TERMINAL』面板輸入 0~10 後按 Enter。");
+                if (consecutiveEmpty >= MaxConsecutiveEmptyInputs)
+                {
+                    Console.WriteLine($"[i] 已連續 {MaxConsecutiveEmptyInputs} 次收到空輸入，自動結束程式。");
+                    return;
+                }
+
+                Console.WriteLine();
+                continue;
+            }
+
+            consecutiveEmpty = 0;
+
+            if (!int.TryParse(trimmed, out int choice))
+            {
+                Console.WriteLine($"[!] 無效輸入「{trimmed}」，請輸入 0~10 的整數。\n");
                 continue;
             }
 
