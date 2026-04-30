@@ -482,3 +482,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+TwoPointers/obj/Debug/net10.0/TwoPointers.AssemblyInfo.cs
+TwoPointers/obj/Debug/net10.0/TwoPointers.AssemblyInfo.cs
