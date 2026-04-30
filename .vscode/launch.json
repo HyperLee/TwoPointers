@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Launch (TwoPointers)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/TwoPointers/bin/Debug/net10.0/TwoPointers.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/TwoPointers",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    }
+  ]
+}
