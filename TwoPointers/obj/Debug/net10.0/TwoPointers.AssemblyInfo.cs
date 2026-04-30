@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TwoPointers")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d17ec0c2cfcd27e17dfafc3df223b96e26e3d83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afbfdd5acbaa10cb7e46e280bbe57d087c9736b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TwoPointers")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TwoPointers")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
